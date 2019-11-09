@@ -9,9 +9,9 @@
 <body>
 <body style='background-color: #FFFF99;'>
 <div>
-  <h5>${film.title} (${film.releaseYear})</h5>
-  <p>Description: ${film.description}</p>
-  <p>Length: ${film.length}</p>
+  <h5>${inductee.name} (${inductee.birthday})</h5>
+  <p>Description: ${inductee.description}</p>
+  <p>Finisher: ${inductee.finisher}</p>
 </div>
 </body>
 </html>
