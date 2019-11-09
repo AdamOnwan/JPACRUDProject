@@ -39,37 +39,37 @@ class InducteeTest {
 		inductee = null;
 	}
 
-//	@Test
-//	void testName() {
-//		assertNotNull(inductee);
-//		assertEquals("André the Giant", inductee.getName());
-//	}
-//	@Test
-//	void testCrowdName() {
-//		assertEquals(null, inductee.getCrowdName());
-//	}
-//	@Test
-//	void testRealName() {
-//		assertNotNull(inductee);
-//		assertEquals("André René Roussimoff", inductee.getRealName());
-//	}
+	@Test
+	void testName() {
+		assertNotNull(inductee);
+		assertEquals("André the Giant", inductee.getName());
+	}
+	@Test
+	void testCrowdName() {
+		assertEquals(null, inductee.getCrowdName());
+	}
+	@Test
+	void testRealName() {
+		assertNotNull(inductee);
+		assertEquals("André René Roussimoff", inductee.getRealName());
+	}
 	@Test
 	void testInducted() {
 		assertNotNull(inductee);
 		assertEquals(1993, inductee.getInducted());
 	}
-//	@Test
-//	void testBirthday() {
-//		assertNotNull(inductee);
-//		assertEquals(1946-05-19, inductee.getBirthday());
-//	}
-//	@Test
-//	void testDescription() {
-//		assertEquals("Feuded with Hogan", inductee.getDescription());
-//	}
-//	@Test
-//	void testFinisher() {
-//		assertEquals("Sitting on his opponent", inductee.getFinisher());
-//	}
+	@Test
+	void testBirthday() {
+		assertNotNull(inductee);
+		assertEquals(1946-05-19, inductee.getBirthday());
+	}
+	@Test
+	void testDescription() {
+		assertEquals("Feuded with Hogan", inductee.getDescription());
+	}
+	@Test
+	void testFinisher() {
+		assertEquals("Sitting on his opponent", inductee.getFinisher());
+	}
 
 }
