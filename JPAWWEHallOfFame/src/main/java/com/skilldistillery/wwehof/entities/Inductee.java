@@ -3,7 +3,7 @@ package com.skilldistillery.wwehof.entities;
 import javax.persistence.*;
 
 @Entity
-public class Inductees {
+public class Inductee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -36,7 +36,7 @@ public class Inductees {
 		return builder.toString();
 	}
 
-	public Inductees() {
+	public Inductee() {
 		super();
 	}
 

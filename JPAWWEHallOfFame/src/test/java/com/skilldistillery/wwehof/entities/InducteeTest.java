@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 class InducteeTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Inductees inductees;
+	private Inductee inductee;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -30,19 +30,19 @@ class InducteeTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		inductees = em.find(Inductees.class, 1);
+		inductee = em.find(Inductee.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		inductees = null;
+		inductee = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(inductees);
-		assertEquals("André the Giant", inductees.getName());
+		assertNotNull(inductee);
+		assertEquals("André the Giant", inductee.getName());
 	}
 
 }

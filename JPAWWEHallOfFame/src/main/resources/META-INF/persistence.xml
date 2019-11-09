@@ -9,7 +9,7 @@
     </provider>
 
 <!-- class definitions -->
-<class>com.skilldistillery.wwehof.entities.Inductees</class>
+<class>com.skilldistillery.wwehof.entities.Inductee</class>
 
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/WWEHallOfFameDB?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=MST" />
