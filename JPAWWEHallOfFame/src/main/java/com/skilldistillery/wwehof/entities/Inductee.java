@@ -15,10 +15,12 @@ public class Inductee {
 	private String crowdName;
 	@Column(name = "real_name")
 	private String realName;
-	private Year inducted;
+	private Integer inducted;
 	private LocalDate birthday;
 	private String description;
 	private String finisher;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -43,10 +45,10 @@ public class Inductee {
 	public void setRealName(String realName) {
 		this.realName = realName;
 	}
-	public Year getInducted() {
+	public Integer getInducted() {
 		return inducted;
 	}
-	public void setInducted(Year inducted) {
+	public void setInducted(Integer inducted) {
 		this.inducted = inducted;
 	}
 	public LocalDate getBirthday() {
@@ -92,6 +94,7 @@ public class Inductee {
 	public Inductee() {
 		super();
 	}
-
 	
+
+
 }

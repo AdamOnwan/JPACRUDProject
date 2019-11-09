@@ -61,7 +61,7 @@ class InducteeTest {
 	@Test
 	void testBirthday() {
 		assertNotNull(inductee);
-		assertEquals(1946-05-19, inductee.getBirthday());
+		assertEquals("1946-05-19", inductee.getBirthday().toString());
 	}
 	@Test
 	void testDescription() {
