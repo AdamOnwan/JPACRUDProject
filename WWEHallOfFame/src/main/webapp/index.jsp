@@ -4,11 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="styles.css">
 <meta charset="UTF-8">
 <title>WWE Hall Of Fame Index</title>
 </head>
 <body>
-<body style='background-color: #FFFF99;'>
+	<form action="add.do" method="GET">
+		<input type="submit" value="newWWEHOFInductee" />
+	</form>
 	<form action="getInductee.do" method="GET">
 		Inductee by ID: <input type="text" name="iid" /> <input type="submit" value="Show Inductee" />
 	</form>

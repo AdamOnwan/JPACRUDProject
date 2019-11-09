@@ -2,6 +2,8 @@ package com.skilldistillery.bootwwehof.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +31,7 @@ public class WWEController {
 
 		@RequestMapping(path = "/")
 	public String index() {
-		return "WEB-INF/index.jsp";
+		return "/index.jsp";
 		// return "index"; // if using a ViewResolver.
 	}
 
@@ -42,7 +44,7 @@ public class WWEController {
 		// DAO
 
 		mv.addObject("inductee", inductee);
-		mv.setViewName("WEB-INF/inductee/show.jsp");
+		mv.setViewName("WEB-INF/show.jsp");
 		return mv;
 	}
 	
@@ -53,7 +55,7 @@ public class WWEController {
 		List<Inductee> inductees = WWEDAO.findAll();
 
 		mv.addObject("inductees", inductees);
-		mv.setViewName("WEB-INF/inductee/show.jsp");
+		mv.setViewName("WEB-INF/show.jsp");
 		return mv;
 	}
 	
@@ -63,7 +65,17 @@ public class WWEController {
 		List<Inductee> inductees = WWEDAO.findAll();
 		model.addAttribute("inductees", inductees);
 
-	  return "/WEB-INF/index.jsp";
+	  return "/index.jsp";
+	}
+	
+	@RequestMapping(path = "add.do", method = RequestMethod.GET)
+	public ModelAndView newHOFinductee(@Valid Inductee inductee) {
+		ModelAndView mv = new ModelAndView();
+		System.err.println("inside getInductee");
+
+		mv.addObject("inductee", WWEDAO.addToHallOfFame(inductee));
+		mv.setViewName("WEB-INF/show.jsp");
+		return mv;
 	}
 
 }

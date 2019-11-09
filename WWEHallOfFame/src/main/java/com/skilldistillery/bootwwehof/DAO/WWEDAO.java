@@ -8,5 +8,8 @@ public interface WWEDAO {
 	Inductee findById(int id);
 	Inductee findByName(String name);
 	List<Inductee> findAll();
+	Inductee addToHallOfFame(Inductee inductee);
+	Inductee updateById(int id, Inductee inductee);
+	boolean removeFromHallOfFameById(int id);
 	
 }

@@ -73,5 +73,9 @@ class InducteeTest {
 	void testFinisher() {
 		assertEquals("Sitting on his opponent", inductee.getFinisher());
 	}
+	@Test
+	void testBirthplace() {
+		assertEquals("Paris, France", inductee.getBirthplace());
+	}
 
 }

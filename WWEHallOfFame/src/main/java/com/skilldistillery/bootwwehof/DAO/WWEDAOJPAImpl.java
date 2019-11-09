@@ -36,4 +36,43 @@ public class WWEDAOJPAImpl implements WWEDAO {
 	public Inductee findById(int id) {
 		return em.find(Inductee.class, id);
 	}
+
+	@Override
+	public Inductee addToHallOfFame(Inductee inductee) {
+//		em.getTransaction().begin();
+//		System.out.println("pre-save actor id: " + inductee.getId());
+
+		em.persist(inductee);
+		System.out.println("pre-save actor id: " + inductee.getId());
+
+		em.flush();
+
+//		em.getTransaction().commit();
+//		    em.getTransaction().rollback();
+
+		em.close();
+
+		return inductee;
+	}
+
+	@Override
+	public Inductee updateById(int id, Inductee inductee) {
+		Inductee foundInductee = em.find(Inductee.class, id);
+		em.getTransaction().begin();
+		foundInductee.setName(inductee.getName());
+		foundInductee.setRealName(inductee.getRealName());
+		foundInductee.setInducted(inductee.getInducted());
+		foundInductee.setBirthday(inductee.getBirthday());
+		em.flush();
+
+		em.getTransaction().commit();
+
+		return foundInductee;
+	}
+
+	@Override
+	public boolean removeFromHallOfFameById(int id) {
+		
+		return true;
+	}
 }

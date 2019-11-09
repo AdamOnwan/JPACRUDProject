@@ -19,7 +19,7 @@ public class Inductee {
 	private LocalDate birthday;
 	private String description;
 	private String finisher;
-	
+	private String birthplace;
 	public int getId() {
 		return id;
 	}
@@ -68,6 +68,12 @@ public class Inductee {
 	public void setFinisher(String finisher) {
 		this.finisher = finisher;
 	}
+	public String getBirthplace() {
+		return birthplace;
+	}
+	public void setBirthplace(String birthplace) {
+		this.birthplace = birthplace;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -87,6 +93,8 @@ public class Inductee {
 		builder.append(description);
 		builder.append(", finisher=");
 		builder.append(finisher);
+		builder.append(", birthplace=");
+		builder.append(birthplace);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -98,6 +106,7 @@ public class Inductee {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
+		result = prime * result + ((birthplace == null) ? 0 : birthplace.hashCode());
 		result = prime * result + ((crowdName == null) ? 0 : crowdName.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((finisher == null) ? 0 : finisher.hashCode());
@@ -120,6 +129,11 @@ public class Inductee {
 			if (other.birthday != null)
 				return false;
 		} else if (!birthday.equals(other.birthday))
+			return false;
+		if (birthplace == null) {
+			if (other.birthplace != null)
+				return false;
+		} else if (!birthplace.equals(other.birthplace))
 			return false;
 		if (crowdName == null) {
 			if (other.crowdName != null)
@@ -156,6 +170,5 @@ public class Inductee {
 		return true;
 	}
 	
-
-
+	
 }
