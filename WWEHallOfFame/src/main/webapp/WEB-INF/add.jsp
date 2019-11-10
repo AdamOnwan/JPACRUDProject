@@ -13,7 +13,7 @@
 	<div class="container">
 			<h1>New WWE Hall of Fame Inductee</h1>
 		</div>
-	<form:form action="newHOFInductee.do" method="GET" modelAttribute="inductee">
+	<form:form action="add.do" method="POST">
 		<table><tr>
 		<form:label path="name">Name: </form:label>
 		<form:input path="name" required="required"/>
@@ -49,6 +49,11 @@
 		<form:input path="finisher" value="Enter finisher here"/>
 		<form:errors path="finisher" />
 		</tr>
+		<tr>
+		<form:label path="birthplace">BirthPlace:</form:label>
+		<form:input path="birthplace" value="Enter birthplace here"/>
+		<form:errors path="birthplace" />
+		</tr>
 		</table>
 		<div class="container">
 		<input type="submit" id = "addNewWWEHOFInductee"  class="btn btn-outline-light" value="newWWEHOFInductee" />
@@ -58,3 +63,5 @@
 			to Home</a>
 </body>
 </html>
+
+

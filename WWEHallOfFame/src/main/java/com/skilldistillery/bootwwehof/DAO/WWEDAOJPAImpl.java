@@ -39,18 +39,9 @@ public class WWEDAOJPAImpl implements WWEDAO {
 
 	@Override
 	public Inductee addToHallOfFame(Inductee inductee) {
-//		em.getTransaction().begin();
-//		System.out.println("pre-save actor id: " + inductee.getId());
-
 		em.persist(inductee);
 		System.out.println("pre-save actor id: " + inductee.getId());
-
 		em.flush();
-
-//		em.getTransaction().commit();
-//		    em.getTransaction().rollback();
-
-		em.close();
 
 		return inductee;
 	}

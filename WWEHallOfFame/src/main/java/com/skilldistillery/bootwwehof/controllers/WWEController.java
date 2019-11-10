@@ -1,5 +1,6 @@
 package com.skilldistillery.bootwwehof.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -68,13 +69,27 @@ public class WWEController {
 	  return "/index.jsp";
 	}
 	
-	@RequestMapping(path = "add.do", method = RequestMethod.GET)
-	public ModelAndView newHOFinductee(@Valid Inductee inductee) {
+	@RequestMapping(path = "add.do")
+	public ModelAndView gotoadd() {
 		ModelAndView mv = new ModelAndView();
-		System.err.println("inside getInductee");
+		mv.setViewName("/index.jsp");
+		System.err.println("*******************gotoadd.do************************");
+		
+		return mv;
+	}
+	
+	
+	@RequestMapping(path="add.do", method=RequestMethod.POST)
+	public ModelAndView newHOFinductee(@RequestParam("name")String name, @RequestParam("crowdName")String crowdName, @RequestParam("realName")String realName,
+		@RequestParam("inducted") Integer inducted, @RequestParam("birthday") LocalDate birthday, @RequestParam("description")String description,
+		@RequestParam("finisher")String finisher, @RequestParam("birthplace")String birthplace)	{
+		System.err.println("************************add.do*******************");
+		Inductee inductee = new Inductee();
+		ModelAndView mv = new ModelAndView();
+		System.err.println("************************add.do*******************");
 
 		mv.addObject("inductee", WWEDAO.addToHallOfFame(inductee));
-		mv.setViewName("WEB-INF/show.jsp");
+		mv.setViewName("WEB-INF/add.jsp");
 		return mv;
 	}
 

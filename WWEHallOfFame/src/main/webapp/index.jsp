@@ -10,7 +10,7 @@
 </head>
 <body>
 	<form action="add.do" method="GET">
-		<input type="submit" value="newWWEHOFInductee" />
+		<input type="submit" value="Add Inductee" />
 	</form>
 	<form action="getInductee.do" method="GET">
 		Inductee by ID: <input type="text" name="iid" /> <input type="submit" value="Show Inductee" />
