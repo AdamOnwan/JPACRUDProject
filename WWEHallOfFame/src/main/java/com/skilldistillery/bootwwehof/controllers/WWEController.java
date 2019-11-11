@@ -1,6 +1,7 @@
 package com.skilldistillery.bootwwehof.controllers;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -8,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -69,28 +71,58 @@ public class WWEController {
 	  return "/index.jsp";
 	}
 	
-	@RequestMapping(path = "add.do")
-	public ModelAndView gotoadd() {
+	@RequestMapping(path = "addInductee.do")
+	public ModelAndView gotoadd(Model model) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/index.jsp");
-		System.err.println("*******************gotoadd.do************************");
+		mv.setViewName("WEB-INF/add.jsp");
 		
 		return mv;
 	}
 	
 	
-	@RequestMapping(path="add.do", method=RequestMethod.POST)
-	public ModelAndView newHOFinductee(@RequestParam("name")String name, @RequestParam("crowdName")String crowdName, @RequestParam("realName")String realName,
-		@RequestParam("inducted") Integer inducted, @RequestParam("birthday") LocalDate birthday, @RequestParam("description")String description,
+	@RequestMapping(value="add.do", method=RequestMethod.POST)
+	public ModelAndView newHOFinductee(@Valid @RequestParam("name")String name, @RequestParam("crowdName")String crowdName, @RequestParam("realName")String realName,
+		@RequestParam("inducted") Integer inducted, @RequestParam("birthday") String birthday, @RequestParam("description")String description,
 		@RequestParam("finisher")String finisher, @RequestParam("birthplace")String birthplace)	{
-		System.err.println("************************add.do*******************");
-		Inductee inductee = new Inductee();
 		ModelAndView mv = new ModelAndView();
-		System.err.println("************************add.do*******************");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate birthdayParse = LocalDate.parse(birthday, formatter);
+		Inductee inductee = new Inductee(name, crowdName, realName, inducted, birthdayParse, description, finisher, birthplace);
+		inductee = WWEDAO.addToHallOfFame(inductee);
 
-		mv.addObject("inductee", WWEDAO.addToHallOfFame(inductee));
-		mv.setViewName("WEB-INF/add.jsp");
+		mv.addObject("inductee", new Inductee());
+		mv.setViewName("/");
 		return mv;
 	}
-
+	
+	@RequestMapping(path="removeInductee.do", method=RequestMethod.POST)
+	public ModelAndView removeInductee(@RequestParam("iid") int iid) {
+		ModelAndView mv = new ModelAndView();
+		WWEDAO.removeFromHallOfFameById(iid);
+		mv.setViewName("/");
+		return mv;
+	}
+	
+	@RequestMapping(path = "updateInductee.do")
+	public ModelAndView gotoupdate(Model model) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/update.jsp");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value="update.do", method=RequestMethod.POST)
+	public ModelAndView updateHOFinductee(@Valid  @RequestParam("id") int id, @RequestParam("name")String name, @RequestParam("crowdName")String crowdName, @RequestParam("realName")String realName,
+		@RequestParam("inducted") Integer inducted, @RequestParam("birthday") String birthday, @RequestParam("description")String description,
+		@RequestParam("finisher")String finisher, @RequestParam("birthplace")String birthplace)	{
+		ModelAndView mv = new ModelAndView();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate birthdayParse = LocalDate.parse(birthday, formatter);
+		Inductee inductee = new Inductee(name, crowdName, realName, inducted, birthdayParse, description, finisher, birthplace);
+		inductee = WWEDAO.updateById(id, inductee);
+		
+		mv.addObject("inductee", id);
+		mv.setViewName("/");
+		return mv;
+	}
 }

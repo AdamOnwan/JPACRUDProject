@@ -9,7 +9,7 @@
 <title>WWE Hall Of Fame Index</title>
 </head>
 <body>
-	<form action="add.do" method="GET">
+	<form action="addInductee.do" method="GET">
 		<input type="submit" value="Add Inductee" />
 	</form>
 	<form action="getInductee.do" method="GET">
@@ -22,17 +22,7 @@
 	</c:forEach>
 	</form>
 	</div>
-
-	<%-- <div>
-	<hr>
-	<c:if test="${not empty inductee }"/>
-	<ul>
-	<c:forEach var="inductee" items="${inductee }">
-	<li>
-	<a href="getInductee.do?iid=${inductee.id }">${inductee.name }</a>
-	</li>
-	</c:forEach>
-	</ul>
-	</div> --%>
+	<a href="/" class="btn btn-secondary" role="button">Back
+			to Home</a>
 </body>
 </html>

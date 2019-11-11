@@ -1,6 +1,6 @@
 package com.skilldistillery.wwehof.entities;
 
-import java.time.*;
+import java.time.LocalDate;
 import java.util.*;
 
 import javax.persistence.*;
@@ -22,9 +22,6 @@ public class Inductee {
 	private String birthplace;
 	public int getId() {
 		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -73,33 +70,6 @@ public class Inductee {
 	}
 	public void setBirthplace(String birthplace) {
 		this.birthplace = birthplace;
-	}
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Inductee [id=");
-		builder.append(id);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append(", crowdName=");
-		builder.append(crowdName);
-		builder.append(", realName=");
-		builder.append(realName);
-		builder.append(", inducted=");
-		builder.append(inducted);
-		builder.append(", birthday=");
-		builder.append(birthday);
-		builder.append(", description=");
-		builder.append(description);
-		builder.append(", finisher=");
-		builder.append(finisher);
-		builder.append(", birthplace=");
-		builder.append(birthplace);
-		builder.append("]");
-		return builder.toString();
-	}
-	public Inductee() {
-		super();
 	}
 	@Override
 	public int hashCode() {
@@ -169,6 +139,44 @@ public class Inductee {
 			return false;
 		return true;
 	}
-	
-	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Inductee [id=");
+		builder.append(id);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", crowdName=");
+		builder.append(crowdName);
+		builder.append(", realName=");
+		builder.append(realName);
+		builder.append(", inducted=");
+		builder.append(inducted);
+		builder.append(", birthday=");
+		builder.append(birthday);
+		builder.append(", description=");
+		builder.append(description);
+		builder.append(", finisher=");
+		builder.append(finisher);
+		builder.append(", birthplace=");
+		builder.append(birthplace);
+		builder.append("]");
+		return builder.toString();
+	}
+	public Inductee(String name, String crowdName, String realName, Integer inducted, LocalDate birthday,
+			String description, String finisher, String birthplace) {
+		super();
+		this.name = name;
+		this.crowdName = crowdName;
+		this.realName = realName;
+		this.inducted = inducted;
+		this.birthday = birthday;
+		this.description = description;
+		this.finisher = finisher;
+		this.birthplace = birthplace;
+	}
+	public Inductee() {
+		super();
+	}
+
 }
