@@ -1,9 +1,9 @@
 ### JPACRUDProject
 
-##Overview
+## Overview
 This program simulates a WWE database CRUD.
 
-##Technologies/topics used
+## Technologies/topics used
 Spring Boot
 
 Interface - Used to ensure the implementing object executed certain commands/methods
@@ -13,4 +13,4 @@ ToString - Used to simulate text being inputed into the database
 MySQL - Used to test commands in the database before making a ToString in the application
 SQL - commands SELECT, FROM, JOIN, ON, WHERE, LIKE to gather information in and display the it neatly from the database
 Try/Catch to catch SQL errors on the application, and used Try with resources to force AutoCloseable database connections
-##Lessons learned
+## Lessons learned
