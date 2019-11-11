@@ -81,16 +81,16 @@ public class WWEController {
 	
 	@RequestMapping(value="add.do", method=RequestMethod.POST)
 	public ModelAndView newHOFinductee(@RequestParam("name")String name, @RequestParam("crowdName")String crowdName, @RequestParam("realName")String realName,
-		@RequestParam("inducted") Integer inducted, @RequestParam("birthday") String birthday, @RequestParam("description")String description,
+		@RequestParam("inducted") Integer inducted, @RequestParam("birthday") LocalDate birthday, @RequestParam("description")String description,
 		@RequestParam("finisher")String finisher, @RequestParam("birthplace")String birthplace)	{
 		ModelAndView mv = new ModelAndView();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		LocalDate birthdayParse = LocalDate.parse(birthday, formatter);
-		Inductee inductee = new Inductee(name, crowdName, realName, inducted, birthdayParse, description, finisher, birthplace);
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+//		LocalDate birthdayParse = LocalDate.parse(birthday, formatter);
+		Inductee inductee = new Inductee(name, crowdName, realName, inducted, birthday, description, finisher, birthplace);
 		inductee = WWEDAO.addToHallOfFame(inductee);
 
 		mv.addObject("inductee", new Inductee());
-		mv.setViewName("WEB-INF/show.jsp");
+		mv.setViewName("/");
 		return mv;
 	}
 	
@@ -115,7 +115,7 @@ public class WWEController {
 		@RequestParam("inducted") Integer inducted, @RequestParam("birthday") String birthday, @RequestParam("description")String description,
 		@RequestParam("finisher")String finisher, @RequestParam("birthplace")String birthplace)	{
 		ModelAndView mv = new ModelAndView();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
 		LocalDate birthdayParse = LocalDate.parse(birthday, formatter);
 		Inductee inductee = new Inductee(name, crowdName, realName, inducted, birthdayParse, description, finisher, birthplace);
 		inductee = WWEDAO.updateById(id, inductee);
