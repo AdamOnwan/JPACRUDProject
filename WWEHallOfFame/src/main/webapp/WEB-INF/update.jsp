@@ -11,7 +11,7 @@
 <body style='background-color: #FFFF99;'>
 
 <form action="update.do" method="POST" modelAttribute="foundInductee" value=${inductee.id }>
-		<input type="hidden" name="updateId" items="${inductee}">
+		<input type="hidden" name="id" items="${inductee}">
 		<label>name: ${inductee.name }</label> <input type="text" name="name">  <br /> 
 		<label>crowdName: ${inductee.crowdName }</label> <input type="text" name="crowdName" > <br /> 
 		<label>realName: ${inductee.realName }</label> <input type="text" name="realName" > <br /> 
