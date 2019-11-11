@@ -8,9 +8,9 @@
 <meta charset="UTF-8">
 <title>Update Inductee</title>
 </head>
-<body>
+<body style='background-color: #FFFF99;'>
 
-<form:form action="update.do" method="POST" modelAttribute="foundInductee" value=${inductee.id }>
+<form action="update.do" method="POST" modelAttribute="foundInductee" value=${inductee.id }>
 		<input type="hidden" name="updateId" items="${inductee}">
 		<label>name: ${inductee.name }</label> <input type="text" name="name">  <br /> 
 		<label>crowdName: ${inductee.crowdName }</label> <input type="text" name="crowdName" > <br /> 
@@ -21,8 +21,7 @@
 		<label>finisher: ${inductee.finisher }</label> <input type="text" name="finisher" > <br /> 
 		<label>birthplace: ${inductee.birthplace }</label> <input type="text" name="birthplace" > <br /> 
 		<input type="submit" value="Update Inductee" >
-</form:form>
-<a href="/" class="btn btn-secondary" role="button" >Back
-			to Home</a>
+</form>
+<a href="/" class="btn btn-secondary" role="button" >Back to Home</a>
 </body>
 </html>

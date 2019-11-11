@@ -21,7 +21,6 @@
 		<label>birthplace: </label> <input type="text" name="birthplace"> <br /> 
 		<input type="submit" value="Add Inductee">
 </form>
-<a href="/" class="btn btn-secondary" role="button">Back
-			to Home</a>
+<a href="/" class="btn btn-secondary" role="button">Back to Home</a>
 </body>
 </html>

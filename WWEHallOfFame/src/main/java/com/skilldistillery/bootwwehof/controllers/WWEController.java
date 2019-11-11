@@ -9,7 +9,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -81,7 +80,7 @@ public class WWEController {
 	
 	
 	@RequestMapping(value="add.do", method=RequestMethod.POST)
-	public ModelAndView newHOFinductee(@Valid @RequestParam("name")String name, @RequestParam("crowdName")String crowdName, @RequestParam("realName")String realName,
+	public ModelAndView newHOFinductee(@RequestParam("name")String name, @RequestParam("crowdName")String crowdName, @RequestParam("realName")String realName,
 		@RequestParam("inducted") Integer inducted, @RequestParam("birthday") String birthday, @RequestParam("description")String description,
 		@RequestParam("finisher")String finisher, @RequestParam("birthplace")String birthplace)	{
 		ModelAndView mv = new ModelAndView();
@@ -91,7 +90,7 @@ public class WWEController {
 		inductee = WWEDAO.addToHallOfFame(inductee);
 
 		mv.addObject("inductee", new Inductee());
-		mv.setViewName("/");
+		mv.setViewName("WEB-INF/show.jsp");
 		return mv;
 	}
 	
@@ -112,7 +111,7 @@ public class WWEController {
 	}
 	
 	@RequestMapping(value="update.do", method=RequestMethod.POST)
-	public ModelAndView updateHOFinductee(@Valid  @RequestParam("id") int id, @RequestParam("name")String name, @RequestParam("crowdName")String crowdName, @RequestParam("realName")String realName,
+	public ModelAndView updateHOFinductee(@RequestParam("id") int id, @RequestParam("name")String name, @RequestParam("crowdName")String crowdName, @RequestParam("realName")String realName,
 		@RequestParam("inducted") Integer inducted, @RequestParam("birthday") String birthday, @RequestParam("description")String description,
 		@RequestParam("finisher")String finisher, @RequestParam("birthplace")String birthplace)	{
 		ModelAndView mv = new ModelAndView();
