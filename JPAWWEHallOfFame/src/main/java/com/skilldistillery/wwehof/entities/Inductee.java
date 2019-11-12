@@ -16,12 +16,14 @@ public class Inductee {
 	@Column(name = "real_name")
 	private String realName;
 	private Integer inducted;
-	private LocalDate birthday;
 	private String description;
 	private String finisher;
 	private String birthplace;
 	public int getId() {
 		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -47,12 +49,6 @@ public class Inductee {
 	public void setInducted(Integer inducted) {
 		this.inducted = inducted;
 	}
-	public LocalDate getBirthday() {
-		return birthday;
-	}
-	public void setBirthday(LocalDate birthday) {
-		this.birthday = birthday;
-	}
 	public String getDescription() {
 		return description;
 	}
@@ -75,7 +71,6 @@ public class Inductee {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
 		result = prime * result + ((birthplace == null) ? 0 : birthplace.hashCode());
 		result = prime * result + ((crowdName == null) ? 0 : crowdName.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
@@ -95,11 +90,6 @@ public class Inductee {
 		if (getClass() != obj.getClass())
 			return false;
 		Inductee other = (Inductee) obj;
-		if (birthday == null) {
-			if (other.birthday != null)
-				return false;
-		} else if (!birthday.equals(other.birthday))
-			return false;
 		if (birthplace == null) {
 			if (other.birthplace != null)
 				return false;
@@ -152,8 +142,6 @@ public class Inductee {
 		builder.append(realName);
 		builder.append(", inducted=");
 		builder.append(inducted);
-		builder.append(", birthday=");
-		builder.append(birthday);
 		builder.append(", description=");
 		builder.append(description);
 		builder.append(", finisher=");
@@ -163,14 +151,13 @@ public class Inductee {
 		builder.append("]");
 		return builder.toString();
 	}
-	public Inductee(String name, String crowdName, String realName, Integer inducted, LocalDate birthday,
-			String description, String finisher, String birthplace) {
+	public Inductee(String name, String crowdName, String realName, Integer inducted, String description,
+			String finisher, String birthplace) {
 		super();
 		this.name = name;
 		this.crowdName = crowdName;
 		this.realName = realName;
 		this.inducted = inducted;
-		this.birthday = birthday;
 		this.description = description;
 		this.finisher = finisher;
 		this.birthplace = birthplace;
@@ -179,4 +166,5 @@ public class Inductee {
 		super();
 	}
 
+	
 }
