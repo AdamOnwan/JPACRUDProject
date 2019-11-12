@@ -18,7 +18,7 @@
 	<div>
 	<form>
 	<c:forEach var="inductee" items="${inductees }" >
-	<a href="getInductee.do?iid=${inductee.id }">${inductee.name }</a> <br>
+	<a href="getInductee.do?iid=${inductee.id }">${inductee.id} ${inductee.name }</a> <br>
 	</c:forEach>
 	</form>
 	</div>
