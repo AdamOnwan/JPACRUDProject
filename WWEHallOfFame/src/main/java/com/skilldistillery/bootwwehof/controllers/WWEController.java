@@ -53,7 +53,7 @@ public class WWEController {
 	}
 
 	@RequestMapping(value = "add.do", method = RequestMethod.POST)
-	public ModelAndView newHOFinductee(@RequestParam("id") String id, @RequestParam("name") String name,
+	public ModelAndView newHOFinductee(@RequestParam("name") String name,
 			@RequestParam("crowdName") String crowdName, @RequestParam("realName") String realName,
 			@RequestParam("inducted") Integer inducted, @RequestParam("description") String description,
 			@RequestParam("finisher") String finisher, @RequestParam("birthplace") String birthplace) {

@@ -25,7 +25,6 @@
 		<td><input type="text" name="finisher" ></td></tr>
 		<tr><td><label>birthplace: ${inductee.birthplace } </label></td>
 		<td><input type="text" name="birthplace" ></td></tr>
-		<tr><td><input type="submit" value="Update Inductee" ></td></tr>
 		<tr><td><input type="submit" value="Add Inductee"></td></tr>
 	</table>
 </form>
