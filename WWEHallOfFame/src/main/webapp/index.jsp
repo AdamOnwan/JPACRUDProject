@@ -13,7 +13,7 @@
 		<input type="submit" value="Add Inductee" />
 	</form>
 	<form action="getInductee.do" method="GET">
-		Inductee by ID: <input type="text" name="iid" /> <input type="submit" value="Show Inductee" />
+		<label style="font-family:Courier; color:Green;">Inductee by ID:</label> <input type="number" name="iid" /> <input type="submit" value="Show Inductee" />
 	</form>
 	<div>
 	<form>
@@ -22,7 +22,6 @@
 	</c:forEach>
 	</form>
 	</div>
-	<a href="/" class="btn btn-secondary" role="button">Back
-			to Home</a>
+	<a href="/" class="btn btn-secondary" role="button">Back to Home</a>
 </body>
 </html>

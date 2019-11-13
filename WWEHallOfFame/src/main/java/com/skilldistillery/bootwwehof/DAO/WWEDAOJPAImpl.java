@@ -41,7 +41,6 @@ public class WWEDAOJPAImpl implements WWEDAO {
 	@Override
 	public Inductee updateById(int updateId, Inductee inductee) {
 		Inductee foundInductee = em.find(Inductee.class, updateId);
-		System.err.println("" + foundInductee.getId());
 		foundInductee.setName(inductee.getName());
 		foundInductee.setCrowdName(inductee.getCrowdName());
 		foundInductee.setRealName(inductee.getRealName());

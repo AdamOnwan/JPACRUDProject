@@ -18,7 +18,7 @@
 		<tr><td><label>realName: ${inductee.realName } </label></td>
 		<td><input type="text" name="realName" ></td></tr>
 		<tr><td><label>inducted: ${inductee.inducted } </label></td>
-		<td><input type="number" min="1900" step="1" name="inducted"></td></tr>
+		<td><input type="number" step="1" name="inducted"></td></tr>
 		<tr><td><label> description: ${inductee.description } </label></td>
 		<td><input type="text" name="description" ></td></tr>
 		<tr><td><label>finisher: ${inductee.finisher } </label></td>
