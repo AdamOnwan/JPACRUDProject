@@ -14,17 +14,17 @@ public class WWEController {
 	@Autowired
 	private WWEDAO WWEDAO;
 
-	@RequestMapping(path = "index.do")
+	@RequestMapping(path = {"/", "index.do"})
 	public String index() {
-		return "/index.jsp";
+		return "index.jsp";
 	}
 
-	@RequestMapping(path = "/", method = RequestMethod.GET)
+	@RequestMapping(path = {"/", "index.do"}, method = RequestMethod.GET)
 	public String index(Model model) {
 		List<Inductee> inductees = WWEDAO.findAll();
 		model.addAttribute("inductees", inductees);
 
-		return "/index.jsp";
+		return "index.jsp";
 	}
 
 	@RequestMapping(path = "getInductee.do", method = RequestMethod.GET)
@@ -41,7 +41,7 @@ public class WWEController {
 		ModelAndView mv = new ModelAndView();
 		List<Inductee> inductees = WWEDAO.findAll();
 		mv.addObject("inductees", inductees);
-		mv.setViewName("WEB-INF/show.jsp");
+		mv.setViewName("WEB-INF/showall.jsp");
 		return mv;
 	}
 
@@ -52,7 +52,7 @@ public class WWEController {
 		return mv;
 	}
 
-	@RequestMapping(value = "add.do", method = RequestMethod.POST)
+	@RequestMapping(path = "add.do", method = RequestMethod.POST)
 	public ModelAndView newHOFinductee(@RequestParam("name") String name,
 			@RequestParam("crowdName") String crowdName, @RequestParam("realName") String realName,
 			@RequestParam("inducted") Integer inducted, @RequestParam("description") String description,
@@ -61,7 +61,7 @@ public class WWEController {
 		Inductee inductee = new Inductee(name, crowdName, realName, inducted, description, finisher, birthplace);
 		inductee = WWEDAO.addToHallOfFame(inductee);
 		mv.addObject("inductee", new Inductee());
-		mv.setViewName("/index.jsp");
+		mv.setViewName("index.jsp");
 		return mv;
 	}
 
@@ -69,24 +69,24 @@ public class WWEController {
 	public ModelAndView removeInductee(@RequestParam("iid") int iid) {
 		ModelAndView mv = new ModelAndView();
 		WWEDAO.removeFromHallOfFameById(iid);
-		mv.setViewName("/index.jsp");
+		mv.setViewName("index.jsp");
 		return mv;
 	}
 
 	@RequestMapping(path = "updateInductee.do")
 	public ModelAndView gotoupdate(@RequestParam("iid") int iid) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/index.jsp");
+		mv.setViewName("index.jsp");
 		return mv;
 	}
 
-	@RequestMapping(value = "update.do", method = RequestMethod.POST)
+	@RequestMapping(path = "update.do", method = RequestMethod.POST)
 	public ModelAndView updateHOFinductee(Inductee inductee) {
 		ModelAndView mv = new ModelAndView();
 		int id = inductee.getId();
 		inductee = WWEDAO.updateById(id, inductee);
 		mv.addObject("inductee", inductee);
-		mv.setViewName("/index.jsp");
+		mv.setViewName("WEB-INF/show.jsp");
 		return mv;
 	}
 }

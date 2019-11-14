@@ -28,6 +28,6 @@
 		<tr><td><input type="submit" value="Add Inductee"></td></tr>
 	</table>
 </form>
-<a href="/index.jsp" class="btn btn-secondary" role="button">Back to Home</a>
+<a href="index.do" class="btn btn-secondary" role="button">Back to Home</a>
 </body>
 </html>

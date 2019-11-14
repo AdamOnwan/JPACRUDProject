@@ -46,6 +46,6 @@
 		</table>
 </form>
 
-<a href="/" class="btn btn-secondary" role="button">Back to Home</a>
+<a href="index.do" class="btn btn-secondary" role="button">Back to Home</a>
 </body>
 </html>
